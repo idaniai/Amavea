@@ -1,0 +1,32 @@
+
+<!-- Ce fichier contiendra un formulaire de signalement basique -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Faire un signalement</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Formulaire de signalement</h2>
+    <form id="reportForm">
+      <label for="description">Décris la situation :</label><br>
+      <textarea id="description" rows="5" cols="40" required></textarea><br>
+      <label for="lien">Lien du contenu (si connu) :</label><br>
+      <input type="url" id="lien" required><br><br>
+      <button type="submit" class="btn">Soumettre</button>
+    </form>
+    <p id="confirmation"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('reportForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('confirmation').textContent = "Merci. Ton signalement a été enregistré. Nous sommes là pour toi.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- SafeHaven - Structure de base du site avec chat Firebase et formulaire de signalement -->
+
+<!-- Fichier index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SafeHaven - Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>SafeHaven</h1>
+    <p>Un espace sécurisé, bienveillant et à ton écoute</p>
+  </header>
+
+  <main class="container">
+    <p class="intro">
+      Tu n'es pas seul·e. SafeHaven est un espace dédié aux victimes de revenge porn pour se sentir écoutées, soutenues, et guidées dans leurs démarches.
+    </p>
+
+    <div class="btn-group">
+      <a href="signalement.html" class="btn">Faire un signalement</a>
+      <a href="chat.html" class="btn">Parler avec d'autres victimes</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 SafeHaven. Tu as le droit d’être protégé·e.
+  </footer>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBPCmC4yJlBJmC_Y7kegWl6y5KdhLwYA6A",
+      authDomain: "amavea-7bbcb.firebaseapp.com",
+      projectId: "amavea-7bbcb",
+      storageBucket: "amavea-7bbcb.firebasestorage.app",
+      messagingSenderId: "1021104637150",
+      appId: "1:1021104637150:web:91515ff3691c67ef7b6e4f",
+      measurementId: "G-5LVNZPB0BT"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>
+

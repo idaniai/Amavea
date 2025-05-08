@@ -1,0 +1,39 @@
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #FFE6E1;
+  color: #6D8299;
+}
+header {
+  background-color: #BFA2DB;
+  padding: 1.5rem;
+  text-align: center;
+  color: white;
+}
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: #FFF8F0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.btn {
+  background-color: #BFA2DB;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+

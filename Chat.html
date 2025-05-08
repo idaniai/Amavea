@@ -1,0 +1,54 @@
+<!-- chat.html (chat anonyme en Firebase) -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Anonyme</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Chat Anonyme</h2>
+    <div id="chatBox" style="height: 300px; overflow-y: scroll; background: #fff; padding: 1rem; border-radius: 10px;"></div>
+    <input type="text" id="username" placeholder="Ton pseudo" style="margin-top: 10px;" />
+    <input type="text" id="message" placeholder="Écris ton message..." />
+    <button onclick="sendMessage()" class="btn">Envoyer</button>
+  </div>
+
+  <script>
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBPCmC4yJlBJmC_Y7kegWl6y5KdhLwYA6A",
+  authDomain: "amavea-7bbcb.firebaseapp.com",
+  projectId: "amavea-7bbcb",
+  storageBucket: "amavea-7bbcb.firebasestorage.app",
+  messagingSenderId: "1021104637150",
+  appId: "1:1021104637150:web:91515ff3691c67ef7b6e4f",
+  measurementId: "G-5LVNZPB0BT"
+};
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    const chatBox = document.getElementById('chatBox');
+
+    function sendMessage() {
+      const username = document.getElementById('username').value || "Anonyme";
+      const message = document.getElementById('message').value;
+      if (message.trim()) {
+        db.ref("messages").push({ username, message });
+        document.getElementById('message').value = "";
+      }
+    }
+
+    db.ref("messages").on("child_added", function(snapshot) {
+      const msg = snapshot.val();
+      const msgDiv = document.createElement('div');
+      msgDiv.textContent = `${msg.username} : ${msg.message}`;
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    });
+  </script>
+</body>
+</html>
